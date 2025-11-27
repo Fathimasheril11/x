@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Fathima Sheril V - Java Full Stack Developer</title>
+    <meta name="description" content="Java Full Stack Developer | Spring Boot, React, MySQL | Open for SDE Roles"/>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
+
+    <style>
+        :root {--bg:#0f0f0f;--text:#ffffff;--accent:#00d4ff;--card:#1a1a1a;--light-bg:#f8f9fa;--light-text:#212529;--light-card:#ffffff;}
+        body {margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;transition:0.4s;}
+        body.light {background:var(--light-bg);color:var(--light-text);}
+        body.light .navbar,body.light .skill-item,body.light .project-card{background:rgba(255,255,255,0.95);}
+        a {text-decoration:none;color:inherit;}
+        .container {max-width:1200px;margin:0 auto;padding:0 20px;}
+
+        /* Navbar & Toggle */
+        .navbar {position:fixed;top:0;width:100%;background:rgba(10,10,10,0.8);backdrop-filter:blur(10px);z-index:1000;padding:1rem 0;}
+        .nav-content {display:flex;justify-content:space-between;align-items:center;}
+        .nav-logo {font-size:1.8rem;font-weight:700;color:var(--accent);}
+        .nav-links {display:flex;gap:2rem;list-style:none;}
+        .nav-links a {color:var(--text);font-weight:500;transition:0.3s;}
+        .nav-links a:hover {color:var(--accent);}
+        #theme-toggle {position:fixed;top:20px;right:20px;background:var(--card);border:none;width:50px;height:50px;border-radius:50%;cursor:pointer;font-size:1.4rem;z-index:1001;box-shadow:0 4px 15px rgba(0,0,0,0.3);}
+
+        /* Hero */
+        .hero {height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#0f0f0f,#1a1a1a);}
+        .hero h1 {font-size:3.5rem;margin-bottom:0.5rem;}
+        .highlight {color:var(--accent);}
+        .hero h2 {font-size:1.6rem;color:var(--accent);margin-bottom:1rem;}
+        .hero p {max-width:700px;margin:0 auto 2rem;font-size:1.1rem;opacity:0.9;}
+        .btn {display:inline-block;padding:12px 30px;margin:0 10px;border-radius:50px;font-weight:600;transition:0.3s;}
+        .btn-primary {background:var(--accent);color:#000;}
+        .btn-primary:hover {transform:translateY(-3px);box-shadow:0 10px 20px rgba(0,212,255,0.4);}
+        .btn-secondary {border:2px solid var(--accent);color:var(--text);}
+        .btn-secondary:hover {background:var(--accent);color:#000;}
+
+        section {padding:100px 0;}
+        .section-title {text-align:center;font-size:2.8rem;margin-bottom:4rem;position:relative;}
+        .section-title::after {content:'';width:80px;height:4px;background:var(--accent);position:absolute;bottom:-15px;left:50%;transform:translateX(-50%);}
+
+        /* About - Photo on Right */
+        .about-grid {display:grid;grid-template-columns:1fr 380px;gap:5rem;align-items:center;}
+        .about-text p {margin-bottom:1.3rem;font-size:1.1rem;}
+        .profile-img {width:100%;max-width:380px;border-radius:20px;border:5px solid var(--accent);box-shadow:0 15px 40px rgba(0,212,255,0.3);transition:0.4s;}
+        .profile-img:hover {transform:scale(1.05);}
+
+        /* Skills */
+        .skills-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.5rem;}
+        .skill-category h3 {color:var(--accent);margin-bottom:1.5rem;font-size:1.4rem;}
+        .skill-item {display:flex;align-items:center;gap:15px;background:var(--card);padding:14px 18px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.2);transition:0.3s;}
+        .skill-item:hover {transform:translateX(8px);}
+        .skill-icon {font-size:2.4rem;width:50px;text-align:center;}
+        .skill-name {font-weight:600;font-size:1.1rem;}
+
+        /* Projects */
+        .projects-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2rem;}
+        .project-card {background:var(--card);border-radius:15px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.3);transition:0.4s;}
+        .project-card:hover {transform:translateY(-10px);}
+        .project-img {width:100%;height:200px;object-fit:cover;}
+        .project-info {padding:1.5rem;}
+        .project-title {font-size:1.4rem;margin-bottom:0.5rem;}
+        .tech-tags {margin:1rem 0;font-size:0.85rem;color:var(--accent);}
+
+        /* Contact - Clean with Description */
+        .contact-content {text-align:center;max-width:800px;margin:0 auto;}
+        .contact-content p {font-size:1.15rem;margin-bottom:1.5rem;opacity:0.9;}
+        .social-links {display:flex;gap:2rem;justify-content:center;margin-top:2rem;}
+        .social-links a {font-size:2.5rem;transition:0.3s;}
+        .social-links a:hover {transform:translateY(-8px);color:var(--accent);}
+
+        /* Footer */
+        footer {background:#0a0a0a;padding:2rem 0;text-align:center;font-size:0.95rem;border-top:1px solid #333;}
+        footer a {color:var(--accent);font-weight:600;}
+
+        @media (max-width:992px){
+            .about-grid,.contact-grid{grid-template-columns:1fr;}
+            .profile-img{margin:2rem auto 0;}
+        }
+        @media (max-width:768px){
+            .hero h1{font-size:2.5rem;}
+        }
+    </style>
+</head>
+<body>
+    <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="nav-logo">FS</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Hi, I'm <span class="highlight">Fathima Sheril V</span></h1>
+            <h2>Java Full Stack Developer</h2>
+            <p>Building scalable, clean & user-friendly web applications with passion.</p>
+            <div>
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="../Portfolio/FathimaSherilVResume.pdf" target="_blank" class="btn btn-secondary">Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About - Photo on Right -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>A passionate Java Full Stack Developer with hands-on experience building end-to-end applications using Spring Boot, React, MySQL & MongoDB.</p>
+                    <p>I started my journey as a PMO trainee — giving me strong project coordination and client communication skills alongside deep technical expertise.</p>
+                    <p>I love writing clean, maintainable code and optimizing performance. Currently deepening my knowledge in Microservices, Docker, and AWS to become a complete full-stack engineer.</p>
+                    <p><strong>Actively looking for Full Stack roles</strong> where I can contribute from Day 1 and grow with a great team.</p>
+                </div>
+                <!-- Replace the URL below with your actual photo (upload to imgur.com or any free host) -->
+                <img src="./Image/20250527_104246.jpg" alt="Fathima Sheril V" class="profile-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills (Icons only, no %) -->
+    <section id="skills" style="background:var(--card);">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <div class="skill-item"><div class="skill-icon"><i class="devicon-java-plain colored"></i></div><div class="skill-name">Java</div></div>
+                    <div class="skill-item"><div class="skill-icon"><i class="devicon-spring-plain colored"></i></div><div class="skill-name">Spring Boot</div></div>
+                    <div class="skill-item"><div class="skill-icon"><i class="devicon-hibernate-plain colored"></i></div><div class="skill-name">Hibernate / JPA</div></div>
+                    <div class="skill-item"><div class="skill-icon"><i class="fas fa-network-wired" style="color:#00d4ff"></i></div><div class="skill-name">RESTful APIs</div></div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skill-item"><div class="skill-icon"><i class="devicon-html5-plain colored"></i></div><div class="skill-name">HTML5</div></div>
+                    <div class="skill-item"><div class="skill-icon"><i class="devicon-css3-plain colored"></i></div><div class="skill-name">CSS3</div></div>
+                    <div class="skill-item"><div class="skill-icon"><i class="devicon-javascript-plain colored"></i></div><div class="skill-name">JavaScript</div></div>
+                    <div class="skill-item"><div class="skill-icon"><i class="devicon-react-original colored"></i></div><div class="skill-name">React.js</div></div>
+                    <div class="skill-item"><div class="skill-icon"><i class="devicon-bootstrap-plain colored"></i></div><div class="skill-name">Bootstrap</div></div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Databases</h3>
+                    <div class="skill-item"><div class="skill-icon"><i class="devicon-git-plain colored"></i></div><div class="skill-name">Git & GitHub</div></div>
+                    <div class="skill-item"><div class="skill-icon"><i class="devicon-mysql-plain colored"></i></div><div class="skill-name">MySQL</div></div>
+                    <div class="skill-item"><div class="skill-icon"><i class="devicon-mongodb-plain colored"></i></div><div class="skill-name">MongoDB</div></div>
+                    <div class="skill-item"><div class="skill-icon"><i class="devicon-postman-plain colored"></i></div><div class="skill-name">Postman</div></div>
+                    <div class="skill-item"><div class="skill-icon"><i class="devicon-intellij-plain colored"></i></div><div class="skill-name">IntelliJ IDEA</div></div>
+                     <div class="skill-item"><div class="skill-icon"><i class="devicon-vscode-plain colored"></i></div><div class="skill-name">VS Code</div></div>
+                    <div class="skill-item"><div class="skill-icon"><i class="devicon-maven-plain colored"></i></div><div class="skill-name">Maven</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All 4 Projects -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="./Image/Screenshot 2025-11-26 233623.png" alt="Calculator" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">Calculator</h3>
+                        <p class="project-desc">Fully functional calculator using core Java.</p>
+                        <div class="tech-tags">JavaScript • HTML • CSS</div>
+                        <div class="project-links">
+                            <a href="https://github.com/Fathimasheril11/MiniProject" target="_blank" class="btn btn-secondary">Code</a>
+                            <a href="https://fathimasheril11.github.io/proj/" target="_blank" class="btn btn-primary">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="./Image/Screenshot 2025-11-26 223710.png" alt="LMS" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">Learning Management System</h3>
+                        <p class="project-desc">Full LMS with course enrollment like a open source website.</p>
+                        <div class="tech-tags">Spring Boot • Thymeleaf • MySQL</div>
+                        <div class="project-links">
+                            <a href="https://github.com/Fathimasheril11/Learning-Application" target="_blank" class="btn btn-secondary">Code</a>
+                            <a href="https://learning-application-production.up.railway.app/" target="_blank" class="btn btn-primary">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="./Image/Screenshot 2025-11-26 232852.png" alt="Quiz" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">Online Quiz Application</h3>
+                        <p class="project-desc">Dynamic quiz platform with timer, leaderboard & result analytics.</p>
+                        <div class="tech-tags">Java • JSP • Thymeleaf • MySQL</div>
+                        <div class="project-links">
+                            <a href="https://github.com/Fathimasheril11/Quiz-Application" target="_blank" class="btn btn-secondary">Code</a>
+                            <a href="https://quiz-application-production-3459.up.railway.app/" target="_blank" class="btn btn-primary">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="./Image/Screenshot 2025-11-26 232214.png" alt="Movie Booking" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">Movie Booking System</h3>
+                        <p class="project-desc">Complete ticket booking platform with JWT auth, seat selection & admin dashboard.</p>
+                        <div class="tech-tags">Spring Boot • Thymeleaf • MySQL • JWT</div>
+                        <div class="project-links">
+                            <a href="https://github.com/Fathimasheril11/Movie-Booking-App" target="_blank" class="btn btn-secondary">Code</a>
+                            <a href="https://movie-booking-app-production-664d.up.railway.app/login" target="_blank" class="btn btn-primary">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Description -->
+    <section id="contact" style="background:var(--card);">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-content">
+                <p>I'm currently open to full-time Full Stack opportunities. Whether you have a project, job opening, or just want to say hi — feel free to reach out!</p>
+                <p>Email: <a href="mailto:fathimasheril15690@gmail.com">fathimasheril15690@gmail.com</a> • Open to relocation across India</p>
+                
+                <div class="social-links">
+                    <a href="https://github.com/Fathimasheril11" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/fathima-sheril-v-b22552368/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:fathimasheril15690@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            Made with <i class="fas fa-heart" style="color:#e74c3c"></i> by Fathima Sheril V 
+            • <a href="https://github.com/Fathimasheril11" target="_blank">GitHub</a> 
+            • © <span id="year">2025</span>
+        </div>
+    </footer>
+
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' }); }));
+
+        const toggle = document.getElementById('theme-toggle');
+        toggle.addEventListener('click', () => {
+            document.body.classList.toggle('light');
+            const isLight = document.body.classList.contains('light');
+            toggle.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light');
+            toggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+    </script>
+    
+</body>
+</html>
